@@ -6,10 +6,6 @@ class WebhooksController < ::ApplicationController
 
   before_action :find_resource, only: %i[edit update destroy]
 
-  def new
-    @webhook = Webhook.new
-  end
-
   def create
     @webhook = Webhook.new(webhook_params)
     if @webhook.save

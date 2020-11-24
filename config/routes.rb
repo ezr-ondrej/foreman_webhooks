@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :webhooks, except: %i[index show] do
+  resources :webhooks, except: %i[index show new] do
     collection do
       get 'auto_complete_search'
     end
   end
   match '/webhooks' => 'react#index', via: :get
+  match '/webhooks/new' => 'react#index', via: :get
 
   namespace :api, defaults: { format: 'json' } do
     scope '(:apiv)',
