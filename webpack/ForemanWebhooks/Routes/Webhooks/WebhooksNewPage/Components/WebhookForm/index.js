@@ -6,9 +6,11 @@ import WebhookForm from './WebhookForm';
 
 const mapStateToProps = (state, { controller }) => ({
   initialValues: {
+    name: 'asdf',
     enabled: true,
     verify_ssl: true,
-    target_url: 'bla',
+    target_url: 'http://example.com',
+    http_method: 'http',
     http_content_type: 'application/json'
   },
 });

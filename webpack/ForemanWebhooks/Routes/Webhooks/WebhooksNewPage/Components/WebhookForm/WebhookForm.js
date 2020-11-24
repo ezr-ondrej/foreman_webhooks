@@ -46,14 +46,20 @@ const WebhookForm = ({
       <TextField
         name="name" type="text" required="true" label={__('Name')}
       />
-      <FormField
-        id="target_url"
-        type="text"
-        label={__('Target URL')}
-        required={true}
-        disabled={false}
-        labelHelp={__('Target URL that should be called by Foreman')}
-      />
+      <FormikField name='target_url'>
+        {({
+          field, // { name, value, onChange, onBlur }
+          form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+          meta,
+        }) => (
+          <FormField
+            {...field}
+            type="text"
+            label={__('Target URL')}
+            labelHelp={__('Target URL that should be called by Foreman')}
+          />
+        )}
+      </FormikField>
       <TextField
         name="user" type="text" label={__('User')}
         labelHelp={__('Authentication credentials')}
